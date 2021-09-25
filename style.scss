@@ -1,7 +1,6 @@
 //variables
 
 $main-color: #ff005c;
-$sec-color: #ff00e5;
 
 //reset
 
@@ -12,6 +11,11 @@ $sec-color: #ff00e5;
 }
 
 //general styles
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
 
 body {
   min-height: 100vh;
@@ -36,21 +40,23 @@ h4 {
 }
 
 p,
-li {
+li,
+button {
   font-family: "Roboto";
+}
+p {
+  color: white;
+  letter-spacing: 1px;
+  line-height: 1.6;
 }
 
 main {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 1rem auto;
   & > * {
-    margin-bottom: 8rem;
+    margin-bottom: 10rem;
   }
-}
-
-section {
-  margin-bottom: 6rem;
 }
 
 .section-title {
@@ -64,6 +70,7 @@ section {
   text-decoration-color: $main-color;
   text-decoration-thickness: 4px;
   text-underline-offset: 4px;
+  cursor: pointer;
 }
 
 //navbar
@@ -71,6 +78,7 @@ section {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -100,15 +108,9 @@ h1 span {
   color: $main-color;
 }
 
-.header-text__title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  & i {
-    font-size: 1.5rem;
-    color: $main-color;
-    margin: 0 5px;
-  }
+.header-text__title i {
+  color: $main-color;
+  margin: 0 3px;
 }
 
 .social-media-links {
@@ -151,19 +153,13 @@ h1 span {
   }
 }
 
-.about-me__text {
-  color: white;
-  letter-spacing: 1px;
-  line-height: 1.6;
-}
-
 //skills
 
 .skills-items {
   display: grid;
-  gap: 2rem;
+  gap: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(50px, 100px));
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-end;
 }
 
@@ -183,24 +179,123 @@ h1 span {
 
 .projects-items {
   display: grid;
-  gap: 2rem;
+  gap: 4rem 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  justify-content: space-between;
-  align-items: flex-start;
 }
 
 .project {
   color: white;
   text-transform: capitalize;
+  & h3 {
+    margin-bottom: 1.5rem;
+  }
   & img {
     cursor: pointer;
     display: block;
     width: 100%;
     margin-bottom: 1.5rem;
+    transform: translate(-5px, -5px);
+    box-shadow: 5px 5px #ff005c;
+  }
+}
+
+.git-link {
+  cursor: pointer;
+  font-size: 1rem;
+  background: #ff005c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  text-transform: capitalize;
+}
+
+.tags {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0rem;
+  & li {
+    border: 2px solid $main-color;
+    padding: 0.5rem;
+    border-radius: 20px;
+  }
+}
+
+//footer
+
+footer {
+  background-color: $main-color;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+////////////////////////
+
+@media screen and (min-width: 900px) {
+  :root {
+    font-size: 18px;
+  }
+
+  .section-title {
+    text-align: left;
+    font: 1.5rem;
+  }
+
+  //navbar
+  .desktop-menu {
+    text-transform: capitalize;
+    color: white;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu {
+    display: none;
+  }
+
+  //header
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+  }
+
+  .social-media-links {
+    justify-content: flex-start;
+  }
+
+  //about
+  .about-me {
+    align-items: center;
+    & article {
+      flex-direction: row;
+      gap: 2rem;
+      align-items: center;
+    }
+  }
+
+  .about-me__text {
+    text-align: left;
+    font-size: 1.4rem;
+  }
+
+  .about-me__img {
+    width: 70%;
+    & img {
+      border-radius: 50% 0px;
+    }
+  }
+  //projects
+
+  .project img {
+    transform: none;
+    box-shadow: none;
     transition: all 0.5s;
     &:hover {
-      transform: translate(-5px, -5px);
-      box-shadow: 5px 5px #ff005c;
+      transform: translate(-8px, -8px);
+      box-shadow: 8px 8px #ff005c;
     }
   }
 }
