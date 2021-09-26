@@ -14,13 +14,14 @@ $main-color: #ff005c;
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 20px;
+  scroll-padding-top: 120px;
 }
 
 body {
   min-height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%),
     url("./imgs/body-pattern.gif");
+  text-transform: capitalize;
 }
 
 li {
@@ -76,6 +77,8 @@ main {
 //navbar
 
 nav {
+  position: sticky;
+  top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,6 +102,9 @@ header {
 }
 
 .header-text {
+  & h3 {
+    font-size: 1rem;
+  }
   & > * {
     margin-bottom: 1rem;
   }
@@ -119,6 +125,7 @@ h1 span {
   gap: 0.5rem;
   color: $main-color;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 .header-img {
@@ -166,7 +173,7 @@ h1 span {
 .skill {
   text-align: center;
   color: white;
-  text-transform: capitalize;
+
   & img {
     display: block;
     width: 100%;
@@ -185,7 +192,7 @@ h1 span {
 
 .project {
   color: white;
-  text-transform: capitalize;
+
   & h3 {
     margin-bottom: 1.5rem;
   }
@@ -207,7 +214,6 @@ h1 span {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 15px;
-  text-transform: capitalize;
 }
 
 .tags {
@@ -230,6 +236,29 @@ footer {
   padding: 1rem;
 }
 
+//mobile menu
+
+.dropDown-menu {
+  position: fixed;
+  background-color: $main-color;
+  inset: 0;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.close-menu {
+  display: block;
+  margin-left: auto;
+}
+
+.mobile-menu {
+  margin-top: 3rem;
+  & li {
+    margin-bottom: 1.5rem;
+  }
+}
+
 ////////////////////////
 
 @media screen and (min-width: 900px) {
@@ -244,11 +273,18 @@ footer {
 
   //navbar
   .desktop-menu {
-    text-transform: capitalize;
     color: white;
-    width: 50%;
+    width: 35%;
     display: flex;
     justify-content: space-between;
+    font-weight: bold;
+    letter-spacing: 2px;
+    & li a {
+      transition: all 0.5s;
+      &:hover {
+        color: $main-color;
+      }
+    }
   }
   .menu {
     display: none;
@@ -260,6 +296,16 @@ footer {
     justify-content: space-around;
     align-items: center;
     text-align: left;
+  }
+
+  .header-text {
+    & h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .header-text__title {
+    font-size: 2rem;
   }
 
   .social-media-links {
@@ -298,4 +344,10 @@ footer {
       box-shadow: 8px 8px #ff005c;
     }
   }
+}
+
+//modifing classes
+
+.hidden {
+  display: none;
 }
